@@ -58,10 +58,10 @@ following instructions:
 
    ```
    
-   cd /home/pi/picar-4wd/examples 
-   python3 keyboard_control.py
+   $ cd /home/pi/picar-4wd/examples 
+   $ python3 keyboard_control.py
    
-    ```
+   ```
  
  If your car moves backwards for w and forward for a, please cross-check running the move_forward.py file and check if the car is moving backwards. If it does, that means that the motors are installed other way around. You do not need to disperse, you just need to change the power signs in init file as shown here [__init__.py](https://github.com/manosijfiu/self-driving-pi/blob/master/picar_4wd/__init__.py) and then run the initialize command again. You may have to restart the session after initialize command to reflect the changes in the direction.
  
