@@ -132,6 +132,25 @@ This multi-threading programming is taken care by the main() method in the same 
  
  
  ## Recognizing Objects and responding to it using Machine Learning models.
+ 
+In this last step, we will automate object recognization using the picamera and CNN models like Tensorflow. We will use OpenCV for preprocessing the images and and the inyterpreter api of tensor flow to detect the objects.
+ 
+ 1. Please assemble the camera into the Raspberry Pi using [this link](https://www.raspberrypi.com/documentation/accessories/camera.html)
+ 2. Please follow the steps to use [this link](https://www.tensorflow.org/lite/guide/python) to use Tensorflow Lite with Raspberry Pi.
+ 3. [This link] can be used for setting up OpenCV on the Raspberry Pi.
+
+Now it is time to test the object detection. At first, we need to print a Stop Sign and put it in front of the Pi. Then we must run ```detect.py``` given by the tensorflow lite library (/home/pi/examples/lite/examples/object_detection/raspberry_pi/detect.py). We also need to connect the Pi to a monitor or install VNC viewer on the computer and connect the Pi from the VNC viewer to be able to see how Pi **sees** and **interprets** the object. Please check our work [here](https://fiudit-my.sharepoint.com/personal/mroyc001_fiu_edu/_layouts/15/onedrive.aspx?login_hint=mroyc001%40fiu%2Eedu&id=%2Fpersonal%2Fmroyc001%5Ffiu%5Fedu%2FDocuments%2FMobile%2DComputing%2FLab%20Docs%2FReports%2FLab%201%20Part%202%2Fstop%20sign%20detection%20preview%2Emp4&parent=%2Fpersonal%2Fmroyc001%5Ffiu%5Fedu%2FDocuments%2FMobile%2DComputing%2FLab%20Docs%2FReports%2FLab%201%20Part%202).
+
+
+After the preview, we can be sure that the Pi is able to detect the object and now it is time to respond to the object. It can be traffic signs, animals, or humans. But you can also build your own models and train the pi to detect. Now, with this object detection, we have made the Pi stop for 5 seconds whenever a Stop Sign is encountered. The video is [here](https://fiudit-my.sharepoint.com/personal/mroyc001_fiu_edu/_layouts/15/onedrive.aspx?login_hint=mroyc001%40fiu%2Eedu&id=%2Fpersonal%2Fmroyc001%5Ffiu%5Fedu%2FDocuments%2FMobile%2DComputing%2FLab%20Docs%2FReports%2FLab%201%20Part%202%2Fautomatic%20responding%20to%20Stop%20Sign%2Emp4&parent=%2Fpersonal%2Fmroyc001%5Ffiu%5Fedu%2FDocuments%2FMobile%2DComputing%2FLab%20Docs%2FReports%2FLab%201%20Part%202)
+We can also extend this functionality to stop and wait until an animal is gone from the way of the Pi.
+
+ ```
+  $ cd /home/pi/picar-4wd/examples/examples/object_detection/raspberry_pi
+  $ python3 detect.py
+```
+
+
 
 
 
