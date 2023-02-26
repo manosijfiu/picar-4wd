@@ -65,7 +65,7 @@ following instructions:
  
  If your car moves backwards for w and forward for a, please cross-check running the move_forward.py file and check if the car is moving backwards. If it does, that means that the motors are installed other way around. You do not need to disperse, you just need to change the power signs in init file as shown here [__init__.py](https://github.com/manosijfiu/self-driving-pi/blob/master/picar_4wd/__init__.py) and then run the initialize command again. You may have to restart the session after initialize command to reflect the changes in the direction.
  
- ##Step 5: A simple SLAM for avoiding the obstacles
+ ## Step 5: A simple SLAM for avoiding the obstacles
  
  The idea is to make the car moving forward and while doing so, the car must scan for obstacles and if any obstacles found, it will make a smart decision to change its direction. If there are obstacles in both forward and right side, the car will take left turn, and right turn for the vice-versa. If there is an obstacle too close, the car will move a little backwards.
  
