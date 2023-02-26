@@ -95,10 +95,11 @@ Please run the following command and look at the output how it plots the obstacl
 
 ## Step 7: Auto navigation
 
-In this step, we will pass a virtual grid as an input to the car as a hardcoded value, we will also pass a target cell in the 9 x 9 sized grid. Then we will run the navigation.hc.py to see if the car is navigating to the target avoiding all the obstacles (1s in the grid). At first, the car will calculate the shortest path from source to the destination using the astar algorithm implemented in [astar.py](https://github.com/manosijfiu/picar-4wd/blob/master/examples/astar.py), and then it will use ```move_car()``` method of [navigation.hc.py](https://github.com/manosijfiu/picar-4wd/blob/master/examples/navigation.hc.py) to navgate the pi car along with th epath calculated. The path calculated will be shown in the output console.
+In this step, we will pass a virtual grid as an input to the car as a hardcoded value, we will also pass a target cell, and source cell in the 9 x 9 sized grid. Then we will run the navigation.hc.py to see if the car is navigating to the target avoiding all the obstacles (1s in the grid). At first, the car will calculate the shortest path from source to the destination using the astar algorithm implemented in [astar.py](https://github.com/manosijfiu/picar-4wd/blob/master/examples/astar.py), and then it will use ```move_car()``` method of [navigation.hc.py](https://github.com/manosijfiu/picar-4wd/blob/master/examples/navigation.hc.py) to navgate the pi car along with th epath calculated. The path calculated will be shown in the output console.
 
+For example, my pi-car has been given the following grid. The target cell was given as (0, 0) and the source cell was given as (8,5).
 ```
-            [[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [[**0**, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
@@ -107,9 +108,10 @@ In this step, we will pass a virtual grid as an input to the car as a hardcoded 
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+            [0, 0, 0, 0, 0, **0**, 0, 0, 0, 0]]
 ```
 
+And the Pi followed the grid in the path deliniated below.
 
  ```
   $ cd /home/pi/picar-4wd/examples
