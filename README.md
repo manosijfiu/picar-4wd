@@ -67,7 +67,7 @@ following instructions:
  
  ## Step 5: A simple SLAM for avoiding the obstacles
  
- The idea is to make the car moving forward and while doing so, the car must scan for obstacles and if any obstacles found, it will make a smart decision to change its direction. If there are obstacles in both forward and right side, the car will take left turn, and right turn for the vice-versa. If there is an obstacle too close, the car will move a little backwards.
+The idea is to make the car moving forward and while doing so, the car must scan for obstacles and if any obstacles found, it will make a smart decision to change its direction. If there are obstacles in both forward and right side, the car will take left turn, and right turn for the vice-versa. If there is an obstacle too close, the car will move a little backwards.
  
  Place your car in a surface with random obstacles scattered around. Please run the following command to see how it works. I have also attached a video.
  
@@ -79,7 +79,42 @@ following instructions:
 Video Link [Here](https://fiudit-my.sharepoint.com/personal/mroyc001_fiu_edu/_layouts/15/onedrive.aspx?login_hint=mroyc001%40fiu%2Eedu&id=%2Fpersonal%2Fmroyc001%5Ffiu%5Fedu%2FDocuments%2FMobile%2DComputing%2FLab%20Docs%2FReports%2Fobstacle%20avoidance%20%28Rubric%203%2D4%29%20part%204%20redone%2Emp4&parent=%2Fpersonal%2Fmroyc001%5Ffiu%5Fedu%2FDocuments%2FMobile%2DComputing%2FLab%20Docs%2FReports). Please request access.
  
 Now, the obstacle avoidance system will need 2 parameters. the first one is for the distance of the obstacles that the car should try to change direction. The second one is for emergency response. This will have the car move a little backward as the obstacle is too near as discovered late. Currently, it has been hardcoded as 35cm and 10cm respectively.
- 
+
+## Step 6: Advanced Mapping
+
+In this step we will see that how the car plots an object into a 2 x 2 grid. This would eventually enable the car in the later steps to automatically reach the dectination avoiding the obstacle mapped in this stage. We assume that the car be in the 9 x 9 grid where every cell is 30cm x 30cm in soze. (We have assumed this size because the picar if of 22cm in width and 25 cm in length). Also, we have assumed that the virtual grid is laid in front of the car where the car is at the bottom middle cell of the 9 x 9 grid i.e. at position (8, 4).
+
+All the cells there in the grid are 0 by default - means they are empty. When the sensor of the car scans the environment, and if any object is found in front of the car, the cells containing the obstacles becomes 1 denoting obstacles. 
+
+Please run the following command and look at the output how it plots the obstacles in the virtual grid.
+
+```
+  $ cd /home/pi/picar-4wd/examples
+  $ python3 obstacle_mapping.py
+```
+
+## Step 7: Auto navigation
+
+In this step, we will pass a virtual grid as an input to the car as a hardcoded value, we will also pass a target cell in the 9 x 9 sized grid. Then we will run the navigation.hc.py to see if the car is navigating to the target avoiding all the obstacles (1s in the grid). At first, the car will calculate the shortest path from source to the destination using the astar algorithm implemented in [astar.py](https://github.com/manosijfiu/picar-4wd/blob/master/examples/astar.py), and then it will use ```move_car()``` method of [navigation.hc.py](https://github.com/manosijfiu/picar-4wd/blob/master/examples/navigation.hc.py) to navgate the pi car along with th epath calculated. The path calculated will be shown in the output console.
+
+```
+            [[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+```
+
+
+ ```
+  $ cd /home/pi/picar-4wd/examples
+  $ python3 navigation.hc.py
+```
  
  
  
