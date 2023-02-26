@@ -118,9 +118,20 @@ And the Pi was navigated according to the path shown below **TBA**
   $ python3 navigation.hc.py
 ```
  
+## Step 8: Full Self Driving
+
+Here, we will combine everything we did independently in Step 5, 6, and 7 and let the pi completely self drive from a source to the destination avoiding all the obstacles including newly discovered obstacles using multi-threading programing in python. The pi will first start with scanning for obstacles of its surrondings and plot the obstacle map in the 9 x 9 grid. However, it will not scan for more than 60cm (2 x cell side length) to avoid errors. Once the obstacle mapping completes, it will take the grid with obstacles into it and generate the shortest path using astar.py. After that it will start moving along with the generated path. All of these are achieved by ```navigate()``` method of the [full_self_drive](https://github.com/manosijfiu/picar-4wd/blob/master/examples/full_self_drive.py). Once it starts its journey towards the destination, it will simultaneously start scanning for new obstacles along the way, and this is taken care by ```scan_env()``` method of the same file. Once the car discovers a new obstacle, the navigate() method returns the last position in the cell, and it starts scanning for the obstacle again. But now the source gets updated to the last position as navigate() method returned previously. The obstacles are mapped using the absolute position of the car and also absolute direction of the car using the ```absolute_angle``` in obstacle_mapping.py.
+
+This multi-threading programming is taken care by the main() method in the same ```full_self_drive.py```. The video of self driving is attached. The source is (8,4) and the destination was kept as (0,3). Watch the video [here](https://fiudit-my.sharepoint.com/personal/mroyc001_fiu_edu/_layouts/15/onedrive.aspx?login_hint=mroyc001%40fiu%2Eedu&id=%2Fpersonal%2Fmroyc001%5Ffiu%5Fedu%2FDocuments%2FMobile%2DComputing%2FLab%20Docs%2FReports%2FLab%201%20Part%202%2FFull%20Self%20Drive%2Emp4&parent=%2Fpersonal%2Fmroyc001%5Ffiu%5Fedu%2FDocuments%2FMobile%2DComputing%2FLab%20Docs%2FReports%2FLab%201%20Part%202) - Please request access.
+
+
+ ```
+  $ cd /home/pi/picar-4wd/examples
+  $ python3 full_self_drive.py
+```
  
  
- 
+ ## Recognizing Objects and responding to it using Machine Learning models.
 
 
 
