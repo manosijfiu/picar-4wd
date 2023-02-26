@@ -99,7 +99,7 @@ In this step, we will pass a virtual grid as an input to the car as a hardcoded 
 
 For example, my pi-car has been given the following grid. The target cell was given as (0, 0) and the source cell was given as (8,5).
 ```
-            [[**0**, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
@@ -108,10 +108,10 @@ For example, my pi-car has been given the following grid. The target cell was gi
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, **0**, 0, 0, 0, 0]]
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 ```
 
-And the Pi followed the grid in the path deliniated below.
+And the Pi was navigated according to the path shown below **TBA**
 
  ```
   $ cd /home/pi/picar-4wd/examples
