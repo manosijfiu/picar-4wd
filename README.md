@@ -65,7 +65,23 @@ following instructions:
  
  If your car moves backwards for w and forward for a, please cross-check running the move_forward.py file and check if the car is moving backwards. If it does, that means that the motors are installed other way around. You do not need to disperse, you just need to change the power signs in init file as shown here [__init__.py](https://github.com/manosijfiu/self-driving-pi/blob/master/picar_4wd/__init__.py) and then run the initialize command again. You may have to restart the session after initialize command to reflect the changes in the direction.
  
- ##
+ ##Step 5: A simple SLAM for avoiding the obstacles
+ 
+ The idea is to make the car moving forward and while doing so, the car must scan for obstacles and if any obstacles found, it will make a smart decision to change its direction. If there are obstacles in both forward and right side, the car will take left turn, and right turn for the vice-versa. If there is an obstacle too close, the car will move a little backwards.
+ 
+ Place your car in a surface with random obstacles scattered around. Please run the following command to see how it works. I have also attached a video.
+ 
+ ```
+ $ cd /home/pi/picar-4wd/examples
+ $ python3 obstacle_avoidance.py
+ ```
+ 
+Video Link [Here](https://fiudit-my.sharepoint.com/personal/mroyc001_fiu_edu/_layouts/15/onedrive.aspx?login_hint=mroyc001%40fiu%2Eedu&id=%2Fpersonal%2Fmroyc001%5Ffiu%5Fedu%2FDocuments%2FMobile%2DComputing%2FLab%20Docs%2FReports%2Fobstacle%20avoidance%20%28Rubric%203%2D4%29%20part%204%20redone%2Emp4&parent=%2Fpersonal%2Fmroyc001%5Ffiu%5Fedu%2FDocuments%2FMobile%2DComputing%2FLab%20Docs%2FReports). Please request access.
+ 
+Now, the obstacle avoidance system will need 2 parameters. the first one is for the distance of the obstacles that the car should try to change direction. The second one is for emergency response. This will have the car move a little backward as the obstacle is too near as discovered late. Currently, it has been hardcoded as 35cm and 10cm respectively.
+ 
+ 
+ 
  
  
 
